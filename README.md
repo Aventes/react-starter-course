@@ -1,10 +1,10 @@
 # Урок 1. Введение в ReactJs 
 
-### Шаг 1. Установить NodeJS/Npm [[nodeJs]](https://nodejs.org/en/download/)
+### Шаг 1. Установить NodeJS/Npm [nodeJs](https://nodejs.org/en/download/)
 
-### Шаг 2. Установить [[create-react-app]](https://reactjs.org/docs/add-react-to-a-new-app.html) 
+### Шаг 2. Установить [create-react-app](https://reactjs.org/docs/add-react-to-a-new-app.html) 
 
-    **npm install -g create-react-app**
+    ```npm install -g create-react-app```
     флаг -g означает что установка глобальная
     
 ### Шаг 3. Создать новое приложение bicycle-app
@@ -21,10 +21,10 @@
     при сборке приложения.
     
 ### Шаг 4. Production build 
-    Production билд можно создать с помощью команды - npm run build
+    Production билд можно создать с помощью команды - ```npm run build```
 
 ### Шаг 5. Deploy to Dev environment 
-    Dev build можно создать командой **npm run install**.
+    Dev build можно создать командой ```npm run install```.
     Основное отличие Dev build от Production Build - возможность дебажить код в браузере и большим размером bundle.js.
     
 ### JSX 
@@ -82,7 +82,7 @@
     Presentation Components - не содержат логики, отвечают за рендеринг данных, содержат наборы стилей, картинки.
     Container Components - отвечают за то, КАК приложение работает, не содержат стилей, или картинок, но зато подключают Presentation Components и другие Container Components.
     
-    Больше информации: [[Containers vs Presentational Components]](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
+    Больше информации: [Containers vs Presentational Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
      
 #### Presentation Components - эти компоненты нужно ТОЛЬКО для отображения, как правило не имеют логики и не имеют подключения к Redux.
     Эти компоненты могут подключать CSS styles, картинки, markup.
@@ -133,7 +133,7 @@
     **import React from 'react';**  
 
 ### Простой импорт 
-    Немного базового сиктаксиса: [[ES6 Import]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), [[ES6 Export]](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export)
+    Немного базового сиктаксиса: [ES6 Import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), [ES6 Export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export)
     
     К примеру, имеем файл src/containers/App.js, мы хотим подкключить этот файл в index.js
 ```jsx 
@@ -158,9 +158,9 @@
     ReactDOM.render(<App />, 
         document.getElementById('root'));
 ```        
-    Больше информации можно подчерпнуть здесь: [[ES6 Modules — Imports and exports]](https://medium.com/craft-academy/es6-modules-imports-and-exports-1e5b552ddca9)     
+    Больше информации можно подчерпнуть здесь: [ES6 Modules — Imports and exports](https://medium.com/craft-academy/es6-modules-imports-and-exports-1e5b552ddca9)     
             
-### State - [[State and Lifecycle]](https://reactjs.org/docs/state-and-lifecycle.html)
+### State - [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
     State - это внутреннее состояние компонента, со всеми его внутреннеми свойствами. 
     Так же, как и у человека, кровь, плоть и мышцы являются исключительно Human's state
 ```jsx 
@@ -202,7 +202,7 @@
         }))
 ```
     
-### Props aka Параметры компонента - [[Components and Props]](https://reactjs.org/docs/components-and-props.html)
+### Props aka Параметры компонента - [Components and Props](https://reactjs.org/docs/components-and-props.html)
     Каждый компонент может и должен принимать параметры из-вне. К параметрам компонента можно обращаться используя this.props.paramName
 ```jsx 
     class Person extends Component {
@@ -236,7 +236,7 @@
     const PersonName = name => <div>{name}</div>;
 ```
     
-### Event Handling (Обработка событий) [[link]](https://reactjs.org/docs/events.html):
+### Event Handling (Обработка событий) [link](https://reactjs.org/docs/events.html):
     Если вы хотите сделать свои компоненты динамическими, Вам не обойтись без использования событий.
     Каждое событие должно иметь producer события и listener/handler события    
 ```jsx 
@@ -253,7 +253,7 @@
 ```
     
     В ReactJS используется SyntheticEvent, по сути, это обертка (Proxy) для стандартных JavaScript events и нужна чтобы подключить кроссбраузерную поддержку.    
-    Подробнее читаем здесь: [[ReactJs Events]](https://reactjs.org/docs/events.html).  
+    Подробнее читаем здесь: [ReactJs Events](https://reactjs.org/docs/events.html).  
        
    
 ## Структура проекта:
