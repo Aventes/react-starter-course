@@ -1,39 +1,46 @@
-#Урок 1. Введение в ReactJs 
+# Урок 1. Введение в ReactJs 
 
 ### Шаг 1. Установить NodeJS/Npm [[nodeJs]](https://nodejs.org/en/download/)
+
 ### Шаг 2. Установить [[create-react-app]](https://reactjs.org/docs/add-react-to-a-new-app.html) 
-    **_npm install -g create-react-app_**
+
+    **npm install -g create-react-app**
     флаг -g означает что установка глобальная
+    
 ### Шаг 3. Создать новое приложение bicycle-app
 
-    _**create-react-app bicycle-app
+```
+    create-react-app bicycle-app
     cd bicycle-app
-    npm start**_
+    npm start
+```
     
-    В этом случае будет создан костяк ReactJs приложения с подключением утилиты **react-scripts**. 
+    В этом случае будет создан костяк ReactJs приложения с подключением утилиты react-scripts. 
     Создание React App не имеет никакой серверной логики, или подключеий к базе данных, 
     а создает всего лишь фронтенд приложение. React App подключает Babel и webpack из коробки и использует их неявно 
     при сборке приложения.
     
 ### Шаг 4. Production build 
-    Production билд можно создать с помощью команды - **npm run build**
+    Production билд можно создать с помощью команды - npm run build
 
 ### Шаг 5. Deploy to Dev environment 
     Dev build можно создать командой **npm run install**.
     Основное отличие Dev build от Production Build - возможность дебажить код в браузере и большим размером bundle.js.
     
-###JSX 
+### JSX 
     Для рендеринга данных в ReactJs используется JSX.
     JSX нужен для Javascript XML - разметки в стиле XML внутри компонентов React. React может работать и без JSX. 
     Но в этом случае, компоненты становятся менее читабельными. Поэтому рекомендуется использовать JSX.
-    **_с JSX:_**
-```jsx harmony
+    
+    **с JSX:**
+```jsx 
     const Navigation = 
         <Nav color="blue">
             <Profile>click</Profile>
         </Nav>;
  ```       
-    **_без JSX:_**
+ 
+    **без JSX:**
 ```javascript
     var Navigation = React.createElement(
          Nav,
@@ -49,24 +56,26 @@
     на этапе комниляции встроенный в ReactJs парсер преобразует написанный JSX в цепочку Javascript функций.
     
     В JSX можно использовать переменные, но для этого нужно использовать фигурные скобки:
-```jsx harmony
+```jsx 
     <Profile>{chosenProfile}</Profile>
 ```
     
     и функции:
-```jsx harmony
+```jsx 
     <Profile>{chooseProfile()}</Profile>
 ```    
-    и даже может иметь простейшую логику, тернарный оператор:
-```jsx harmony
+    и даже может иметь простейшую логику, например тернарный оператор:
+```jsx 
     <Profile>{profileChosen ? defaultProfile : profileChosen}</Profile>
 ```    
     или так:
-```jsx harmony
+```jsx 
     <Profile>{profileChosen || defaultProfile}</Profile>
 ```
 
-###Компоненты:
+    К сожалению, условия if, а так же циклы for внутри JSX не поддерживаются.
+
+### Компоненты:
     React использует компонентную модель,
     то есть все большое приложение делится на небольшие независимые компоненты, которыми гораздо легче управлять.
     Различают  Presentation Components и Container Components
@@ -75,11 +84,11 @@
     
     Больше информации: [[Containers vs Presentational Components]](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
      
-####Presentation Components - эти компоненты нужно ТОЛЬКО для отображения, как правило не имеют логики и не имеют подключения к Redux.
+#### Presentation Components - эти компоненты нужно ТОЛЬКО для отображения, как правило не имеют логики и не имеют подключения к Redux.
     Эти компоненты могут подключать CSS styles, картинки, markup.
     Подобные компоненты не должны загружать данные, но они могут загружать данные через props или callbacks 
    
-```jsx harmony 
+```jsx 
     const CommentList = comments => {
         <ul>
             {
@@ -89,14 +98,14 @@
     };
 ```
     
-####Container components
+#### Container components
     Эти компоненты отвечают за то как Ваше приложение работает, то есть: 
     - загружают данные через REST Api, 
     - отвечают за работу с другими компонентами
     - рабоют с Redux
     - могут содержать как Container components так и Presentation Components
     
-```jsx harmony
+```jsx 
     import React, {Component} from 'react';
     import {loadComments} from './actions';
     import {CommentList} from './CommentList';
@@ -120,14 +129,14 @@
     }  
 ```
       
-###Обязательно подключите ReactJs в каждый компонент!
+### Обязательно подключите ReactJs в каждый компонент!
     **import React from 'react';**  
 
-###Простой импорт 
+### Простой импорт 
     Немного базового сиктаксиса: [[ES6 Import]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), [[ES6 Export]](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export)
     
     К примеру, имеем файл src/containers/App.js, мы хотим подкключить этот файл в index.js
-```jsx harmony
+```jsx 
     App.js
         import React, {Component} from 'react'; //Component - базовый класс ReactJs, нам его нужно наследовать для наших компонент   
         
@@ -140,7 +149,7 @@
         
     Теперь в нашем index.js файле сделаем импорт App.js и отрисуем его на странице 
     index.js
-```jsx harmony    
+```jsx     
     import React from 'react'    
     import ReactDOM from 'react-dom';
     
@@ -151,10 +160,10 @@
 ```        
     Больше информации можно подчерпнуть здесь: [[ES6 Modules — Imports and exports]](https://medium.com/craft-academy/es6-modules-imports-and-exports-1e5b552ddca9)     
             
-###State - [[State and Lifecycle]](https://reactjs.org/docs/state-and-lifecycle.html)
+### State - [[State and Lifecycle]](https://reactjs.org/docs/state-and-lifecycle.html)
     State - это внутреннее состояние компонента, со всеми его внутреннеми свойствами. 
     Так же, как и у человека, кровь, плоть и мышцы являются исключительно Human's state
-```jsx harmony
+```jsx 
     class Human extends Component {
         constructor(props) {
             super(props);
@@ -173,25 +182,29 @@
     НИКОГДА не нужно модифицировать состояние компонента напрямую, то есть так: this.state.weight = newWeight.
      
     Как можно изменить state компонента?
-```jsx harmony
+```jsx 
         this.state.weight = newWeight - так НЕПРАВИЛЬНО.
-        Human.state.weight - так тоже НЕПРАВИЛЬНО.       
-        this.setState({ weight: newWeight }) - Так тоже НЕПРАВИЛЬНО
+        Human.state.weight - так тоже НЕПРАВИЛЬНО.      
+         
+        this.setState({ weight: newWeight }) - Этот способ изменения State является Deprecated, то есть не рекомендуемым/опасным. 
+        Такой вариант подходит только для случаев, когда значение устанавливается через eventHsndler.
+        State компонента может измениться ассинхронно и newWeight будет содержать не актуальное значение.
         
-        Так ПРАВИЛЬНО:
+        Рекомендуемым способом изменения State является callback, в этом случае prevState и props будут гарантированно содержать актуальные данные.
+        **Так ПРАВИЛЬНО**:
         this.setState((prevState, props) => ({
             weight: prevState.weight
         }))
         
-        Так тоже ПРАВИЛЬНО:
+        **Так тоже ПРАВИЛЬНО**:
         this.setState((prevState, props) => ({
             weight: props.weight
         }))
 ```
     
-###Props aka Параметры компонента - [[Components and Props]](https://reactjs.org/docs/components-and-props.html)
+### Props aka Параметры компонента - [[Components and Props]](https://reactjs.org/docs/components-and-props.html)
     Каждый компонент может и должен принимать параметры из-вне. К параметрам компонента можно обращаться используя this.props.paramName
-```jsx harmony
+```jsx 
     class Person extends Component {
         render() {
             return (
@@ -202,7 +215,7 @@
 ```
     
     Props можно принимать и вытаскивать из контекста так:
-```jsx harmony
+```jsx 
     class PersonName extends Component {
         render() {
             return (
@@ -212,21 +225,21 @@
     }
 ```    
     или так:
-```jsx harmony
+```jsx 
     const PersonName = ({name}) => {
         return <div>{name}</div>;
     }
 ```
     
     или даже так:
-```jsx harmony
+```jsx 
     const PersonName = name => <div>{name}</div>;
 ```
     
-###Event Handling (Обработка событий) [[link]](https://reactjs.org/docs/events.html):
+### Event Handling (Обработка событий) [[link]](https://reactjs.org/docs/events.html):
     Если вы хотите сделать свои компоненты динамическими, Вам не обойтись без использования событий.
     Каждое событие должно иметь producer события и listener/handler события    
-```jsx harmony
+```jsx 
     class HelloComponent extends Component(
       handleClick(event) {
         console.log('Hello stranger!');        
@@ -243,7 +256,7 @@
     Подробнее читаем здесь: [[ReactJs Events]](https://reactjs.org/docs/events.html).  
        
    
-##Структура проекта:
+## Структура проекта:
 ```
      bicycle-app      _- корневая папка проекта_
         /node_modules _- здесь npm хранит все dependency проекта (peer-dependency в том числе)_    
