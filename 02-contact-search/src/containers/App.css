@@ -1,0 +1,13 @@
+.App {
+  margin-left: 25%;
+  text-align: center;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.ContactTable {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 10px;
+}
